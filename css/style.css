@@ -7,19 +7,20 @@ h1{
 font-weight: normal;
 margin-top: 150px;
 font-size: 40px;
-color: rgb(109, 118, 199);
+  color: white;
 }
 
 .karamba{
 text-align: center;
 }
 .karamba span{
-color: rgb(109, 118, 199);
+  color: white;
 font-size: 18px;
 }
 
 .big-Numbers{
-color: rgb(109, 118, 199);
+/* color: rgb(109, 118, 199); */
+  color: white;
 font-size: 46px;
 font-weight: bold;
 line-height: 1;
