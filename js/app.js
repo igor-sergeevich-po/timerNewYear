@@ -1,4 +1,4 @@
-const hotDate = "Januar 1 2022 00:00:00 GMT+0300";
+let hotDate = "Januar 1 2022 00:00:00 GMT+0300";
 
 function getTimeOut(hotDate) {
     const t = Date.parse(hotDate) - Date.parse(new Date());
@@ -14,10 +14,7 @@ function getTimeOut(hotDate) {
         'secondsLeft': secondsLeft
     };
 }
-
 let ggg = getTimeOut(hotDate);
-
-
 
 function setTimer(selector, hotDate) {
     const timer = document.querySelector(selector),
@@ -31,9 +28,7 @@ function setTimer(selector, hotDate) {
 
     function updateTimer() {
         const t = getTimeOut(hotDate);
-
-        
-
+   
         daysLeft.innerHTML = t.daysLeft;
         hours.innerHTML = t.hoursLeft;
         minutes.innerHTML = t.minutesLeft;
@@ -41,6 +36,10 @@ function setTimer(selector, hotDate) {
 
         if ( t.total <=0) {
             clearInterval(timeInterval);
+            mainHeader.innerHTML = `с Новым Годом!<br>
+            дней безудержного<br> веселья осталось:`;
+            hotDate = 'Januar 9 2022 00:00:00 GMT+0300';
+            setTimer('.timer-container', hotDate);
         }
 };
 
