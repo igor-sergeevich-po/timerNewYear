@@ -1,11 +1,12 @@
 let hotDate = "Januar 1 2022 00:00:00 GMT+0300";
 
+const mainHeader = document.querySelector('.header');
 function getTimeOut(hotDate) {
     const t = Date.parse(hotDate) - Date.parse(new Date());
-        daysLeft = Math.floor(t / (1000 * 60 * 60 * 24)),
-        hoursLeft = Math.floor((t / (1000 * 60 * 60)) % 24),
-        minutesLef = Math.floor((t / (1000 * 60)) % 60),
-        secondsLeft = Math.floor((t / 1000)%60);
+        daysLeft = Math.floor(t / 1000 / 60 / 60 / 24),
+        hoursLeft = Math.floor((t/1000/60/60)%24) ,
+        minutesLef = Math.floor(t / 1000 / 60) % 60,
+        secondsLeft = Math.floor(t / 1000)%60;
     return {
         'total': t,
         'daysLeft': daysLeft,
@@ -14,7 +15,10 @@ function getTimeOut(hotDate) {
         'secondsLeft': secondsLeft
     };
 }
+
 let ggg = getTimeOut(hotDate);
+console.log(ggg);
+
 
 function setTimer(selector, hotDate) {
     const timer = document.querySelector(selector),
@@ -28,7 +32,9 @@ function setTimer(selector, hotDate) {
 
     function updateTimer() {
         const t = getTimeOut(hotDate);
-   
+
+        console.log(t);
+
         daysLeft.innerHTML = t.daysLeft;
         hours.innerHTML = t.hoursLeft;
         minutes.innerHTML = t.minutesLeft;
@@ -45,3 +51,26 @@ function setTimer(selector, hotDate) {
 
 }
 setTimer('.timer-container', hotDate);
+
+
+
+
+let myImage = new Image;
+
+myImage.src = "https://img.desktopwallpapers.ru/newyear/pics/wide/1366x768/b6e586fe102e6c525fa5600585f98a6b.jpg";
+
+ 
+
+myImage.onload = function(){imageLoaded = true};
+
+ 
+
+setTimeout(function(){
+  var imgDiv = document.getElementById("img");
+
+  if(window.imageLoaded) 
+  return imgDiv.style.backgroundImage = "url(" + myImage.src + ")";
+
+  imgDiv.style.backgroundImage = "url(" + "enotherCoolImageUrl" + ")";
+
+}, 1000);
